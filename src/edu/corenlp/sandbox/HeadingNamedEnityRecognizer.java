@@ -23,6 +23,10 @@ public class HeadingNamedEnityRecognizer {
         // Set up annotators from CoreNLP.
         props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
 
+        // Set up for NER.
+        props.setProperty("ner.applyNumericClassifiers", "false");
+        props.setProperty("ner.useSUTime", "false");
+
         // Construct pipeline.
         this.pipeline = new StanfordCoreNLP(props);
     }
