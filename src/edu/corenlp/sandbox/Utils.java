@@ -6,11 +6,16 @@ import edu.stanford.nlp.pipeline.XMLOutputter;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Utils {
     public static String readTextfile(String path) throws IOException {
-        var lines = Files.readAllLines(Paths.get(path));
+        return readTextfile(Paths.get(path));
+    }
+
+    public static String readTextfile(Path path) throws IOException {
+        var lines = Files.readAllLines(path);
         return lines.stream().reduce("", String::concat);
     }
 
